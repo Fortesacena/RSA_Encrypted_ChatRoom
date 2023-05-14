@@ -45,3 +45,15 @@ ADDRESS = (HOST, PORT)  # servers socket address
 
 SERVER = socket(AF_INET, SOCK_STREAM)   # create socket object
 SERVER.bind(ADDRESS)    # bind socket IP and port no.
+
+
+SERVER.listen(2)
+print('Server IP: ', HOST)
+print("Waiting for connection...")
+accept_incoming_connections()
+accept_incoming_connections()
+
+Thread(target = handle_client1, args = (client_sock, client_addresses)).start()
+Thread(target = handle_client2, args = (client_sock, client_addresses)).start()
+print('Encrypted conversation: ')
+SERVER.close()
